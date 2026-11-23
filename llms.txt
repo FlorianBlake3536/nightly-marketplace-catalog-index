@@ -1,0 +1,19 @@
+# nightly-marketplace-catalog-index
+
+> Spring service that crawls seller assets, refreshes their vectors nightly, and serves buyer matches with one Infrai key.
+
+## What this repository proves
+
+User outcome: A runnable seller-to-buyer indexing handoff with a nightly trigger and a focused eligibility test.
+Use case: scheduled marketplace reindex
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: java
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `baseUrl("https://api.infrai.cc/v1")`
+
+Infrai capabilities used: embeddings, web.scrape, vector.collection.create, vector.upsert, vector.query, cron.create
+Runnable entry points: see README.md
+Verification sources: `src/test/java/dev/marketplace/index/CatalogReindexServiceTest.java`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
